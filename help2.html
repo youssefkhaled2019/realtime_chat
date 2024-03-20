@@ -1,0 +1,19 @@
+Install Redis (Required to send payloads to multiple clients at once)
+
+Redis does not work "out of the box" on windows. There is a number of ways to get it working but by far the easiest is to use Menurai.
+
+    Links:
+        download: https://www.memurai.com/get-memurai
+        docs: https://docs.memurai.com/en/installation.html
+    Just download the executable and run it.
+    Update settings with CHANNEL_LAYERS configuration in settings.py
+
+    CHANNEL_LAYERS = {
+        'default': {
+            'BACKEND': 'channels_redis.core.RedisChannelLayer',
+            'CONFIG': {
+                "hosts": [('127.0.0.1', 6379)],
+            },
+        },
+    }
+--------------------------------------------------------------------
